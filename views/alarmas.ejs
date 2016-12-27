@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="col-sm-12">
+      <div class="well">
+        <h2>SISTEMA INTEGRADO ALARMAS 24(SIA24)</h2>
+    <p id='server-time'></p>
+     <script>
+      var HOST = location.origin.replace(/^http/, 'ws')
+      var ws = new WebSocket(HOST);
+      var el = document.getElementById('server-time');
+
+      ws.onmessage = function (event) {
+        el.innerHTML = 'Server time: ' + event.data;
+      };
+    </script> 
+  </div>
+<div class="container">
+  <h2>Historico de Alarmas</h2>         
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Identificador</th>
+        <th>Alarmas</th>
+        <th>Tipo de alarma</th>
+         <th>Fecha</th>
+      </tr>
+    </thead>
+    
+  </table>
+</div class="container">
+  <button type="button" class="btn btn-link" href="/index.html">Volver</button> 
+</body>
+</html>
