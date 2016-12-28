@@ -6,8 +6,8 @@ var  alarmasController=require('../controllers/alarmas_controller')
 
 //Definicion de rutas de /quizes
 router.get('/equipos/new',equiposController.new);
-router.get('/equipos/show',equiposController.show);
+router.get('/equipos',equiposController.show);
 router.post('/equipos/delete',equiposcontroller.delete);
-router.get('/equipos/show',alarmasController.show);
+router.get('/alarmas',alarmasController.show);
 
 module.exports = router;
